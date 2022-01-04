@@ -69,7 +69,7 @@ export const MovieName = styled.h1`
   font-family: HK Grotesk;
   font-style: normal;
   font-weight: 700;
-  font-size: 48px;
+  font-size: 38px;
   line-height: 62px;
   color: #ffffff;
 `
@@ -77,10 +77,49 @@ export const MovieOverView = styled.p`
   font-family: HK Grotesk;
   font-style: normal;
   font-weight: 400;
-  font-size: 19px;
+  font-size: 15px;
   line-height: 26px;
-  transition: 0.3s all ease-out;
+  animation: fadeRight 1s ease-out;
   color: #ffffff;
+  animation-delay: 3s;
+  @keyframes fadeRight {
+    40% {
+      position: relative;
+      left: 1px;
+      opacity: 80%;
+    }
+
+    50% {
+      position: relative;
+      left: 25px;
+      opacity: 65%;
+    }
+    60% {
+      position: relative;
+      left: 40px;
+      opacity: 50%;
+    }
+    70% {
+      position: relative;
+      left: 55px;
+      opacity: 35%;
+    }
+    80% {
+      position: relative;
+      left: 70px;
+      opacity: 20%;
+    }
+    90% {
+      position: relative;
+      left: 85px;
+      opacity: 10%;
+    }
+    100% {
+      position: relative;
+      left: 100px;
+      opacity: 0%;
+    }
+  }
 `
 export const AudioAndMovieAgeCont = styled.div`
   display: flex;
@@ -115,6 +154,67 @@ export const AgeTape = styled.div`
   padding: 15px;
   border-left: 3px solid white;
   color: white;
+  font-size: 15px;
+  font-weight: 700;
+`
+export const BottomCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 60px;
+  padding-right: 40px;
+  position: relative;
+  bottom: 318px;
+  z-index: 12121212;
+`
+
+export const TrendingMoviesCont = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+`
+
+export const TrendinhMovieHeader = styled.h1`
+  color: white;
+  font-size: 23px;
+  margin-bottom: 20px;
+`
+export const TrendingMoviesInnerCont = styled.div`
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100%;
+  z-index: 1111111;
+`
+
+export const ButtonCont = styled.div`
+  display: flex;
+  width: 250px;
+  justify-content: space-between;
+  margin-top: 13px;
+`
+export const PlayButton = styled.button`
+  border: 0px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: white;
+  width: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 700;
+`
+
+export const MoreInfo = styled.button`
+  border: 0px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: grey;
+  width: 115px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 15px;
   font-weight: 700;
 `

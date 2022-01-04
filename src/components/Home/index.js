@@ -1,5 +1,10 @@
 import {Component} from 'react'
+import {FaPlay} from 'react-icons/fa'
+import {AiOutlineInfoCircle} from 'react-icons/ai'
+import MovieSlider from '../MovieSlider'
 
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import {
   HomeCont,
   Header,
@@ -14,6 +19,13 @@ import {
   AudioLogo,
   AgeTape,
   AudioOff,
+  TrendingMoviesCont,
+  TrendinhMovieHeader,
+  BottomCont,
+  TrendingMoviesInnerCont,
+  ButtonCont,
+  PlayButton,
+  MoreInfo,
 } from './styledComponents'
 
 class Home extends Component {
@@ -29,7 +41,7 @@ class Home extends Component {
     this.getAllMovies()
     setTimeout(() => {
       this.setState({showDesc: false})
-    }, 5000)
+    }, 4000)
   }
 
   getTrendingMovie = () => {
@@ -104,7 +116,7 @@ class Home extends Component {
   }
 
   render() {
-    const {videoUrl, bannerMovie, mute, showDesc} = this.state
+    const {videoUrl, bannerMovie, mute, showDesc, moviesList} = this.state
     console.log(videoUrl)
     return (
       <HomeCont>
@@ -113,7 +125,6 @@ class Home extends Component {
         </Header>
         <VideoCont>
           <VideoPlayer
-            width="1000px"
             url={videoUrl}
             playing
             loop
@@ -127,11 +138,16 @@ class Home extends Component {
           />
           <MovieInfo>
             {bannerMovie !== null && <MovieName>{bannerMovie.title}</MovieName>}
-            {bannerMovie !== null && showDesc && (
-              <MovieOverView>
-                {bannerMovie.overview.split('.')[0].concat(' ...')}
-              </MovieOverView>
-            )}
+            <ButtonCont>
+              <PlayButton>
+                <FaPlay style={{marginRight: '5px'}} />
+                Play
+              </PlayButton>
+              <MoreInfo>
+                <AiOutlineInfoCircle style={{marginRight: '5px'}} />
+                More Info
+              </MoreInfo>
+            </ButtonCont>
           </MovieInfo>
           <AudioAndMovieAgeCont>
             {!mute ? (
@@ -145,6 +161,13 @@ class Home extends Component {
           </AudioAndMovieAgeCont>
         </VideoCont>
         <BottomGradient>.</BottomGradient>
+        <BottomCont>
+          <TrendingMoviesCont>
+            <TrendinhMovieHeader>Trending Movies</TrendinhMovieHeader>
+
+            <MovieSlider moviesList={moviesList} />
+          </TrendingMoviesCont>
+        </BottomCont>
       </HomeCont>
     )
   }
